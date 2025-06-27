@@ -19,6 +19,17 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
+        <dependency>
+            <groupId>com.tidytask</groupId>
+            <artifactId>tidytask-api-rest</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+<!--        <dependency>-->
+<!--            <groupId>org.springdoc</groupId>-->
+<!--            <artifactId>springdoc-openapi-ui</artifactId>-->
+<!--            <version>1.7.0</version>-->
+<!--        </dependency>-->
     </dependencies>
     <name>${project.groupId}:${project.artifactId}</name>
     <description />
