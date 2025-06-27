@@ -22,7 +22,18 @@
         <dependency>
             <groupId>com.tidytask</groupId>
             <artifactId>tidytask-api-rest</artifactId>
-            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.tidytask</groupId>
+            <artifactId>tidytask-infrastructure</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.tidytask</groupId>
+            <artifactId>tidytask-domain</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.tidytask</groupId>
+            <artifactId>tidytask-application</artifactId>
         </dependency>
 
 <!--        <dependency>-->

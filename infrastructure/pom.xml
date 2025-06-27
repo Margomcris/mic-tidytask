@@ -15,6 +15,12 @@
 
     <name>${project.groupId}:${project.artifactId}</name>
     <description>Infrastructure Module.</description>
+    <dependencies>
+        <dependency>
+            <groupId>com.tidytask</groupId>
+            <artifactId>tidytask-domain</artifactId>
+        </dependency>
+    </dependencies>
 
     <build>
         <finalName>${project.artifactId}-${project.version}</finalName>
