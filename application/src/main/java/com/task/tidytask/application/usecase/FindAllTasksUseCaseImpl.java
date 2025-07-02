@@ -1,21 +1,21 @@
 package com.task.tidytask.application.usecase;
 
+import com.task.tidytask.application.port.input.FindAllTasksUseCase;
 import com.task.tidytask.domain.model.TaskDomain;
-import com.task.tidytask.application.port.input.CreateTaskUseCase;
 import com.task.tidytask.domain.repository.TaskRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 @Slf4j
 @RequiredArgsConstructor
-public class CreateTaskUseCaseImpl implements CreateTaskUseCase {
-
+public class FindAllTasksUseCaseImpl implements FindAllTasksUseCase {
     private final TaskRepository taskRepository;
-
     @Override
-    public TaskDomain createTask(final TaskDomain task) {
-        return this.taskRepository.saveTask(task);
+    public List<TaskDomain> findAllTasks() {
+        return this.taskRepository.findAllTasks();
     }
 }

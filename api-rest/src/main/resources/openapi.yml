@@ -58,7 +58,11 @@ components:
           type: boolean
         date:
           type: string
-          format: date-time
+          format: "YYYY-MM-DD"
+          example: "2023-10-01"
         hour:
           type: string
           format: time
+      required:
+        - date
+        - hour

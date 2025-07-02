@@ -1,15 +1,21 @@
 package com.task.tidytask.infrastructure.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.boot.context.properties.bind.DefaultValue;
 
+import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.UUID;
 
 @Data
 @Builder
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "TASKS")
 public class TaskEntity {
     @Id
@@ -19,11 +25,11 @@ public class TaskEntity {
     @Column(name = "DESCRIPTION")
     private  String description;
 
-    @Column(name = "COMPLETED")
-    private  Boolean completed;
+    @Column(nullable = false, name = "COMPLETED")
+    private  boolean completed;
 
     @Column(name = "DATE")
-    private OffsetDateTime date;
+    private LocalDate date;
 
     @Column(name = "HOUR")
     private  String hour;

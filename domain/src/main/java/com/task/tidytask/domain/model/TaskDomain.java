@@ -2,6 +2,7 @@ package com.task.tidytask.domain.model;
 
 import lombok.Data;
 
+import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.UUID;
 
@@ -13,7 +14,7 @@ public class TaskDomain {
 
     private  Boolean completed;
 
-    private  OffsetDateTime date;
+    private LocalDate date;
 
     private  String hour;
 }
