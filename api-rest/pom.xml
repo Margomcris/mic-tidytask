@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.tidytask</groupId>
+        <artifactId>tidytask</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <relativePath>..</relativePath>
+    </parent>
+
+    <artifactId>tidytask-api-rest</artifactId>
+    <packaging>jar</packaging>
+
+    <name>${project.groupId}:${project.artifactId}</name>
+    <description>Api rest Module.</description>
+    <dependencies>
+        <dependency>
+            <groupId>org.openapitools</groupId>
+            <artifactId>jackson-databind-nullable</artifactId>
+            <version>0.2.6</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.tidytask</groupId>
+            <artifactId>tidytask-domain</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.tidytask</groupId>
+            <artifactId>tidytask-application</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>${project.artifactId}-${project.version}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.openapitools</groupId>
+                <artifactId>openapi-generator-maven-plugin</artifactId>
+                <version>7.13.0</version> <!-- Usa la versión más reciente -->
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <inputSpec>${project.basedir}/src/main/resources/openapi.yml</inputSpec>
+                    <generatorName>spring</generatorName>
+                    <library>spring-boot</library>
+                    <output>${project.build.directory}/generated-sources/openapi</output>
+                    <apiPackage>com.tidytask.api</apiPackage>
+                    <modelPackage>com.tidytask.dto</modelPackage>
+                    <configOptions>
+                        <interfaceOnly>true</interfaceOnly>
+                        <useTags>true</useTags>
+                        <jakarta>true</jakarta>
+                        <useJakartaEe>true</useJakartaEe>
+                    </configOptions>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <configuration>
+                    <source>21</source>
+                    <target>21</target>
+                    <generatedSourcesDirectory>${project.build.directory}/generated-sources/openapi</generatedSourcesDirectory>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <reporting />
+</project>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.tidytask</groupId>
+        <artifactId>tidytask</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <relativePath>..</relativePath>
+    </parent>
+    <artifactId>tidytask-boot</artifactId>
+    <packaging>jar</packaging>
+
+    <dependencies>
+    <!-- Spring Boot starter -->
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+        <dependency>
+            <groupId>com.tidytask</groupId>
+            <artifactId>tidytask-api-rest</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.tidytask</groupId>
+            <artifactId>tidytask-infrastructure</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.tidytask</groupId>
+            <artifactId>tidytask-domain</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.tidytask</groupId>
+            <artifactId>tidytask-application</artifactId>
+        </dependency>
+
+<!--        <dependency>-->
+<!--            <groupId>org.springdoc</groupId>-->
+<!--            <artifactId>springdoc-openapi-ui</artifactId>-->
+<!--            <version>1.7.0</version>-->
+<!--        </dependency>-->
+    </dependencies>
+    <name>${project.groupId}:${project.artifactId}</name>
+    <description />
+    <build>
+        <finalName>${project.artifactId}-${project.version}</finalName>
+        <plugins />
+    </build>
+
+    <reporting />
+</project>

@@ -1,0 +1,68 @@
+openapi: 3.0.3
+info:
+  title: TidyTask REST API
+  version: 1.0.0
+  description: API para gestionar tareas pendientes
+  contact:
+      name: Cristina Martín Gómez
+      email: margomcris@gmail.com
+servers:
+  - url: http://localhost:8081
+paths:
+  /tasks:
+    get:
+      summary: Obtener todas las tareas
+      operationId: getTaskList
+      tags:
+        - Tasks
+      responses:
+        '200':
+          description: Lista de tareas
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TaskDto'
+    post:
+      summary: Crear una nueva tarea
+      operationId: createTask
+      tags:
+        - Tasks
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TaskDto'
+      responses:
+        '201':
+          description: Tarea creada
+          content:
+            application/json:
+              schema:
+                type: object
+                $ref: '#/components/schemas/TaskDto'
+
+components:
+  schemas:
+    TaskDto:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        description:
+          type: string
+        completed:
+          type: boolean
+        date:
+          type: string
+          format: "YYYY-MM-DD"
+          example: "2023-10-01"
+        hour:
+          type: string
+          format: time
+      required:
+        - date
+        - hour

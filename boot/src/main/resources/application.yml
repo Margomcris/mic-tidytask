@@ -1,0 +1,23 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: mic-tidytask
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: admin
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+      default-schema: tidytask
+    show-sql: true
+  springdoc:
+    api-docs:
+      path: /v3/api-docs
+    swagger-ui:
+      enabled: true
+      path: /swagger-ui.html
+    swagger-ui-config:
+      url:  api-rest/src/main/resources/openapi.yml
